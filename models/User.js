@@ -11,16 +11,21 @@ const UserSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        validate: {
-            isEmail: true
-        }
+        //still need to add email validation:
     },
     thoughts: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Thought'
         }
-    ]
+    ],
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    
 },
     {
         toJSON: {
